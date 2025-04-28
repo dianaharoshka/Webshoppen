@@ -1,0 +1,36 @@
+.sort-dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 1rem;
+}
+
+.sort-toggle {
+  padding: 0.5rem 1rem;
+
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sort-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  list-style: none;
+}
+
+.sort-menu li {
+  padding: 0.5rem 1rem;
+}
+
+.sort-menu li a {
+  color: #064e3b;
+  text-decoration: none;
+}
+
+.sort-menu.show {
+  display: block;
+}
