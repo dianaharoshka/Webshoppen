@@ -1,0 +1,43 @@
+.header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* или попробуем contain */
+}
+
+.header-content {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.header-content h1 {
+  font-size: 3rem;
+  font-family: "Montserrat", serif;
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 80vh; /* чуть меньше высота на мобильных */
+  }
+
+  .background-video {
+    object-fit: cover; /* Оставляем cover, чтобы сохранить эффект */
+  }
+
+  .header-content h1 {
+    font-size: 2rem; /* Меньше шрифт */
+    padding: 0 1rem; /* Отступы чтобы текст не прилипал */
+  }
+}

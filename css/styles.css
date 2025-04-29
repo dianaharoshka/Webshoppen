@@ -5,16 +5,18 @@
 }
 
 body {
-  font-family: "Segoe UI", sans-serif;
+  /* font-family: "Lora", serif; */
+  font-family: "Merriweather", serif;
+
   line-height: 1.6;
-  background-color: #f4f8f6;
+  background-color: #eef3f7;
   color: #333;
 }
 
 /* Nav*/
 nav {
   background-color: #fff;
-  padding: 0 1rem;
+  padding: 5px 15px;
   border-bottom: 1px solid #e3e3e3;
   display: flex;
   flex-wrap: wrap;
@@ -41,10 +43,10 @@ nav a:hover {
 nav .nav-left,
 nav .nav-right {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
-nav form input[type="text"] {
+nav form input {
   padding: 0.4rem 0.6rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -75,7 +77,6 @@ nav .btn-cart:hover {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
 }
 
 .dropdown-menu {
@@ -140,7 +141,7 @@ nav .btn-cart:hover {
 }
 
 .category-hero {
-  background-color: #064e3b;
+  background-color: #7d9d8c;
   color: white;
   padding: 4rem 0;
   text-align: center;
@@ -244,7 +245,7 @@ nav .btn-cart:hover {
 }
 
 .add-to-cart-btn {
-  background-color: #2e8b57;
+  background-color: #50675a;
   color: white;
   padding: 0.6rem 1.1rem;
   font-size: 1rem;
@@ -256,8 +257,8 @@ nav .btn-cart:hover {
 }
 
 .add-to-cart-btn:hover {
-  background-color: #276e47;
-  transform: scale(1.05);
+  background-color: #3f5449; /* Чуть темнее на hover */
+  transform: translateY(-2px); /* Лёгкий подъем при наведении */
 }
 
 .product-footer {
@@ -266,44 +267,81 @@ nav .btn-cart:hover {
 }
 
 /* Футер */
-footer {
-  background-color: #1f2937;
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 5rem;
+.footer-blocks {
+  background-color: #6c7d75;
+  color: #eef3f7;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  flex-wrap: wrap;
 }
 
-footer a {
-  color: #a5f3fc;
-  text-decoration: underline;
+.footer-column {
+  flex: 1 1 200px;
+  margin: 1rem;
 }
 
-/* Responsive */
+.footer-column h4 {
+  margin-bottom: 1rem;
+}
+
+.footer-column a {
+  display: block;
+  color: #eef3f7;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a:hover {
+  color: #cfd8dc;
+}
+
+.footer-logo {
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: block;
   }
 
   .nav-links {
-    display: none;
+    display: none; /* Скрываем меню по умолчанию */
     flex-direction: column;
     width: 100%;
     margin-top: 1rem;
+    position: absolute; /* Это решит проблему с вылетом вниз */
+    top: 50px; /* Поднимаем меню немного вниз */
+    left: 0;
+    background-color: white; /* Для фона */
+    z-index: 10; /* Чтобы меню не оказалось под другими элементами */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Немного теней для эффекта */
   }
 
   .nav-links.active {
-    display: flex;
+    display: flex; /* Показываем меню, когда активен класс */
   }
 
   nav {
     flex-direction: column;
     align-items: flex-start;
+    position: relative; /* Чтобы меню было относительно навигации */
   }
 
   .dropdown-menu {
-    position: static;
-    border: none;
-    box-shadow: none;
+    position: absolute; /* Позиционируем меню, чтобы оно не мешало другим элементам */
+    display: none; /* Скрыто по умолчанию */
+    flex-direction: column;
+    width: 100%;
+    top: 100%; /* Сразу под кнопкой */
+    left: 0;
+    background-color: white; /* Для фона */
+    z-index: 15;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: flex; /* Показываем дропдаун при активации */
   }
 }

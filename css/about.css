@@ -1,0 +1,87 @@
+/* General Style */
+body {
+  /* font-family: "Poppins", sans-serif; */
+  margin: 0;
+  padding: 0;
+  color: #2e3d29;
+  background-color: #f0f5f1;
+}
+
+/* About Section */
+.about {
+  background-image: url("../images/about_page.jpg"); /* Замени на свое изображение */
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.about-content {
+  background-color: rgba(255, 255, 255, 0.85); /* Мягкий светлый фон */
+  max-width: 900px;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Headings */
+.about-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #3b6e4d; /* Природный зеленый */
+  font-weight: 700;
+}
+
+.about-content h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  color: #568259;
+  font-weight: 600;
+}
+
+/* Paragraphs */
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a5e4d;
+  margin-top: 1rem;
+}
+
+/* Animations */
+.about-content {
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 30px;
+  }
+
+  .about-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+}

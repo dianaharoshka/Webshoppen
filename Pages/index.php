@@ -26,6 +26,12 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Forest Brew</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/header_video.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/0defa46c74.js" crossorigin="anonymous"></script>
 </head>
 
@@ -33,12 +39,22 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
 
     <?php Nav($dbContext); ?>
 
-    <header class="hero">
+    <!-- <header class="hero">
         <div class="overlay">
             <div class="hero-text">
                 <h1>Forest Brew</h1>
                 <p>Nature in every cup</p>
             </div>
+        </div>
+    </header> -->
+
+    <header class="header">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="../video/header_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="header-content">
+            <h1>Forest Brew</h1>
         </div>
     </header>
 

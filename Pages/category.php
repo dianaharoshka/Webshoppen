@@ -62,6 +62,11 @@ if ($sortCol && $sortOrder) {
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/category.css">
     <script src="https://kit.fontawesome.com/0defa46c74.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
