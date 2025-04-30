@@ -120,6 +120,7 @@ if ($sortCol && $sortOrder) {
 
     <?php Footer(); ?>
 
+    <!-- sort by -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const toggle = document.querySelector(".sort-toggle");

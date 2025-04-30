@@ -6,16 +6,15 @@ require_once('Models/Database.php');
 
 $id = $_GET['id'];
 $dbContext = new Database();
-// Hämta den produkt med detta ID
+
 $product = $dbContext->getProductWithCategoryNameById($id);
 $categories = $dbContext->getAllCategoriesAdmin();
 
-// TODO felhantering om inget produkt
+
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Här kommer vi när man har tryckt  på SUBMIT
-    // IMORGON TISDAG SÅ UPDATE PRODUCT SET title = $_POST['title'] WHERE id = $id
+
     $product->title = $_POST['title'];
     $product->stockLevel = $_POST['stockLevel'];
 
@@ -26,10 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header("Location: /admin/products");
     exit;
 } else {
-    // Det är INTE ett formulär som har postats - utan man har klickat in på länk tex edit.php?id=12
+
 }
 
-//Kunna lagra i databas
+
 
 
 ?>

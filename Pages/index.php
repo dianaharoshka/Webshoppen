@@ -39,15 +39,6 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
 
     <?php Nav($dbContext); ?>
 
-    <!-- <header class="hero">
-        <div class="overlay">
-            <div class="hero-text">
-                <h1>Forest Brew</h1>
-                <p>Nature in every cup</p>
-            </div>
-        </div>
-    </header> -->
-
     <header class="header">
         <video autoplay muted loop playsinline class="background-video">
             <source src="../video/header_video.mp4" type="video/mp4">
@@ -96,6 +87,8 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
 
     <?php Footer(); ?>
 
+
+    <!-- popular-products-carousel -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const track = document.querySelector('.carousel-track');
@@ -105,7 +98,7 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
 
             let autoScroll;
 
-            // Прокрутка по кнопкам
+
             prevBtn.addEventListener('click', () => {
                 track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             });
@@ -114,12 +107,12 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
                 track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             });
 
-            // Функция автопрокрутки с зацикливанием
+
             function startAutoScroll() {
                 autoScroll = setInterval(() => {
                     const maxScrollLeft = track.scrollWidth - track.clientWidth;
                     if (Math.ceil(track.scrollLeft) >= maxScrollLeft) {
-                        // Вернуться к началу
+
                         track.scrollTo({ left: 0, behavior: 'smooth' });
                     } else {
                         track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
@@ -127,13 +120,13 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
                 }, 4000);
             }
 
-            // Остановить при наведении
+
             track.addEventListener('mouseenter', () => clearInterval(autoScroll));
             track.addEventListener('mouseleave', startAutoScroll);
 
             startAutoScroll();
 
-            // Анимация появления карточек
+
             const cards = document.querySelectorAll('.product-card');
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {

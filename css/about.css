@@ -1,15 +1,12 @@
-/* General Style */
 body {
-  /* font-family: "Poppins", sans-serif; */
   margin: 0;
   padding: 0;
   color: #2e3d29;
   background-color: #f0f5f1;
 }
 
-/* About Section */
 .about {
-  background-image: url("../images/about_page.jpg"); /* Замени на свое изображение */
+  background-image: url("../images/about_page.jpg");
   background-size: cover;
   background-position: center;
   padding: 100px 20px;
@@ -20,7 +17,7 @@ body {
 }
 
 .about-content {
-  background-color: rgba(255, 255, 255, 0.85); /* Мягкий светлый фон */
+  background-color: rgba(255, 255, 255, 0.85);
   max-width: 900px;
   padding: 50px;
   border-radius: 15px;
@@ -28,11 +25,10 @@ body {
   text-align: center;
 }
 
-/* Headings */
 .about-content h1 {
   font-size: 3rem;
   margin-bottom: 1.5rem;
-  color: #3b6e4d; /* Природный зеленый */
+  color: #3b6e4d;
   font-weight: 700;
 }
 
@@ -43,7 +39,6 @@ body {
   font-weight: 600;
 }
 
-/* Paragraphs */
 .about-content p {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -51,7 +46,6 @@ body {
   margin-top: 1rem;
 }
 
-/* Animations */
 .about-content {
   animation: fadeIn 2s ease;
 }
@@ -67,7 +61,6 @@ body {
   }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .about-content {
     padding: 30px;

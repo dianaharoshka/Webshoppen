@@ -1,4 +1,4 @@
-.header {
+header {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -6,9 +6,13 @@
 }
 
 .background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* или попробуем contain */
+  object-fit: cover;
 }
 
 .header-content {
@@ -29,15 +33,15 @@
 
 @media (max-width: 768px) {
   .header {
-    height: 80vh; /* чуть меньше высота на мобильных */
+    height: 80vh;
   }
 
   .background-video {
-    object-fit: cover; /* Оставляем cover, чтобы сохранить эффект */
+    object-fit: cover;
   }
 
   .header-content h1 {
-    font-size: 2rem; /* Меньше шрифт */
-    padding: 0 1rem; /* Отступы чтобы текст не прилипал */
+    font-size: 2rem;
+    padding: 0 1rem;
   }
 }

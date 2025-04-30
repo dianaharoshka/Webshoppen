@@ -17,7 +17,7 @@ $dbContext = new Database();
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Forest Brew</title>
+    <title>Forest Brew | About</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <script src="https://kit.fontawesome.com/0defa46c74.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,6 @@ $dbContext = new Database();
 
     <?php Nav($dbContext); ?>
 
-    <!-- About Section -->
     <section class="about">
         <div class="about-content">
             <h1>Welcome to Forest Brew</h1>

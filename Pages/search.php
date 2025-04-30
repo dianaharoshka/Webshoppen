@@ -1,6 +1,5 @@
 <?php
-// ONCE = en gång även om det blir cirkelreferenser
-#include_once("Models/Products.php") - OK även om filen inte finns
+
 require_once("Models/Product.php");
 require_once("components/Footer.php");
 require_once("components/Nav.php");
@@ -15,7 +14,7 @@ $sortOrder = $_GET['sortOrder'] ?? "asc";
 
 $products = $dbContext->searchProducts($q, $sortCol, $sortOrder);
 
-// Название сортировки
+
 $sortName = "Sort by";
 if ($sortCol === "title" && $sortOrder === "asc") {
     $sortName = "Name A-Z";
@@ -44,12 +43,10 @@ if ($sortCol === "title" && $sortOrder === "asc") {
 <body>
     <?php Nav($dbContext); ?>
 
-    <!-- Заголовок -->
     <header class="category-hero">
         <h1>Search results for: "<?= htmlspecialchars($q) ?>"</h1>
     </header>
 
-    <!-- Сортировка -->
     <div class="sort-dropdown">
         <button class="sort-toggle"><?= $sortName ?>▾</button>
         <ul class="sort-menu">
@@ -60,7 +57,6 @@ if ($sortCol === "title" && $sortOrder === "asc") {
         </ul>
     </div>
 
-    <!-- Продукты -->
     <section class="products">
         <div class="container">
             <div class="product-grid">
@@ -91,6 +87,7 @@ if ($sortCol === "title" && $sortOrder === "asc") {
 
     <?php Footer(); ?>
 
+    <!-- sort by -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const toggle = document.querySelector(".sort-toggle");
