@@ -81,10 +81,3 @@ if ($confirmed == true) {
 </body>
 
 </html>
-
-<!-- 
-<input type="text" name="title" value="<?php echo $product->title ?>">
-        <input type="text" name="price" value="<?php echo $product->price ?>">
-        <input type="text" name="stockLevel" value="<?php echo $product->stockLevel ?>">
-        <input type="text" name="categoryName" value="<?php echo $product->categoryName ?>">
-        <input type="submit" value="Uppdatera"> -->

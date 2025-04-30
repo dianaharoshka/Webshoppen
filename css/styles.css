@@ -114,7 +114,6 @@ nav .btn-cart:hover {
   margin: 0;
 }
 
-/* Секция товаров */
 .products {
   padding: 4rem 2rem;
 }
@@ -234,8 +233,8 @@ nav .btn-cart:hover {
 }
 
 .add-to-cart-btn:hover {
-  background-color: #3f5449; /* Чуть темнее на hover */
-  transform: translateY(-2px); /* Лёгкий подъем при наведении */
+  background-color: #3f5449;
+  transform: translateY(-2px);
 }
 
 .product-footer {
@@ -243,7 +242,6 @@ nav .btn-cart:hover {
   text-align: center;
 }
 
-/* Футер */
 .footer-blocks {
   background-color: #6c7d75;
   color: #eef3f7;
@@ -284,41 +282,41 @@ nav .btn-cart:hover {
   }
 
   .nav-links {
-    display: none; /* Скрываем меню по умолчанию */
+    display: none;
     flex-direction: column;
     width: 100%;
     margin-top: 1rem;
-    position: absolute; /* Это решит проблему с вылетом вниз */
-    top: 50px; /* Поднимаем меню немного вниз */
+    position: absolute;
+    top: 50px;
     left: 0;
-    background-color: white; /* Для фона */
-    z-index: 10; /* Чтобы меню не оказалось под другими элементами */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Немного теней для эффекта */
+    background-color: white;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   .nav-links.active {
-    display: flex; /* Показываем меню, когда активен класс */
+    display: flex;
   }
 
   nav {
     flex-direction: column;
     align-items: flex-start;
-    position: relative; /* Чтобы меню было относительно навигации */
+    position: relative;
   }
 
   .dropdown-menu {
-    position: absolute; /* Позиционируем меню, чтобы оно не мешало другим элементам */
-    display: none; /* Скрыто по умолчанию */
+    position: absolute;
+    display: none;
     flex-direction: column;
     width: 100%;
-    top: 100%; /* Сразу под кнопкой */
+    top: 100%;
     left: 0;
-    background-color: white; /* Для фона */
+    background-color: white;
     z-index: 15;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   .dropdown.active .dropdown-menu {
-    display: flex; /* Показываем дропдаун при активации */
+    display: flex;
   }
 }

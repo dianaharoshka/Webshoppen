@@ -24,10 +24,6 @@ class Database
 
     }
 
-
-
-
-
     function initDatabase()
     {
         $this->pdo->query('CREATE TABLE IF NOT EXISTS Products (
@@ -50,7 +46,6 @@ class Database
 
     public function initData()
     {
-        // Категории
         $categories = [
 
             ['Coffee', 'Aromatic and energizing coffee for every taste.'],
@@ -70,14 +65,13 @@ class Database
             }
         }
 
-        // Получаем id категорий
+
         $categoryMap = [];
         $stmt = $this->pdo->query("SELECT id, name FROM Categories");
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $categoryMap[$row['name']] = $row['id'];
         }
 
-        // Проверка продуктов
         $res = $this->pdo->query("SELECT COUNT(*) FROM Products");
         if ($res->fetchColumn() > 0) {
             return;
@@ -86,7 +80,7 @@ class Database
         $products = [
             ["Earl Grey Tea", "A classic blend of black tea infused with natural bergamot oil, offering a bold, citrusy flavor and a fragrant aroma — perfect for a refined tea moment any time of day.", 49.00, 95, $categoryMap['Tea'], 1, 'images/Earl_Grey_Tea.jpg'],
             ["Matcha Green Tea", "Premium ceremonial-grade matcha powder made from finely ground green tea leaves. Rich in antioxidants, it delivers a vibrant color, smooth texture, and a slightly sweet, earthy taste.", 79.00, 50, $categoryMap['Tea'], 1, 'images/matcha_tea.jpg'],
-            ["Organic Oolong Tea", "A traditional semi-oxidized Chinese tea, balancing the richness of black tea with the freshness of green tea. Floral aroma and smooth, roasted flavor in every sip.", 59.00, 70, $categoryMap['Tea'], 0, 'images/oolong_tea.jpg'],
+            ["Organic Oolong Tea", "A traditional semi-oxidized Chinese tea, balancing the richness of black tea with the freshness of green tea. Floral aroma and smooth, roasted flavor in every sip.", 59.00, 70, $categoryMap['Tea'], 1, 'images/oolong_tea.jpg'],
             ["Classic Black Tea", "A robust, full-bodied black tea with deep, malty notes. Ideal for morning rituals or as a base for milk tea. A timeless favorite that never goes out of style.", 39.00, 90, $categoryMap['Tea'], 0, 'images/black_tea.jpg'],
             ["Chamomile Herbal Tea", "A soothing herbal infusion made from dried chamomile flowers, known for its calming properties. Gentle floral notes make it perfect for winding down in the evening.", 29.00, 60, $categoryMap['Herbal teas'], 1, 'images/chamomile_tea.webp'],
             ["Peppermint Tea", "A refreshing and naturally caffeine-free tea made from pure peppermint leaves. Cooling, invigorating, and great for digestion or a mid-day mental boost.", 34.00, 80, $categoryMap['Herbal teas'], 1, 'images/peppermint.jpg'],
@@ -96,7 +90,7 @@ class Database
             ["Arabica Coffee Beans", "100% Arabica coffee beans selected for their smooth, rich flavor and subtle acidity. Roasted to perfection for a balanced cup with sweet and fruity notes.", 99.00, 40, $categoryMap['Coffee'], 0, 'images/arabica_coffee_beans.jpg'],
             ["Espresso Roast", "Finely ground, dark-roasted beans with a bold and intense flavor profile. Ideal for a traditional espresso or as a base for lattes and cappuccinos.", 89.00, 30, $categoryMap['Coffee'], 0, 'images/cappuccino_blend.jpeg'],
             ["Cold Brew Blend", "A medium-roast blend specially crafted for cold brewing. Smooth and refreshing with low acidity, chocolatey undertones, and a naturally sweet finish.", 94.00, 35, $categoryMap['Coffee'], 0, 'images/cold_brew_blend.jpeg'],
-            ["Ceramic Coffee Mug", "A simple yet elegant ceramic mug with a smooth matte finish. Comfortable to hold and just the right size for your morning coffee or evening tea.", 14.00, 200, $categoryMap['Mugs'], 0, 'images/ceramic_coffee_mug.jpg'],
+            ["Ceramic Coffee Mug", "A simple yet elegant ceramic mug with a smooth matte finish. Comfortable to hold and just the right size for your morning coffee or evening tea.", 14.00, 200, $categoryMap['Mugs'], 1, 'images/ceramic_coffee_mug.jpg'],
             ["Stainless Steel Teapot", "Durable and stylish teapot made from high-quality stainless steel. Retains heat well and features an easy-pour spout for effortless serving.", 49.00, 50, $categoryMap['Teapots'], 0, 'images/steel_teapot.jpg'],
             ["Glass Teapot", "Elegant teapot crafted from heat-resistant borosilicate glass. Perfect for showcasing the beauty of blooming teas or herbal infusions.", 39.00, 80, $categoryMap['Teapots'], 1, 'images/glass_teapot.jpeg'],
             ["Cold Brew Coffee Maker", "Designed specifically for brewing smooth, refreshing cold brew coffee at home. Easy to use and clean, with a sleek, space-saving design.", 89.00, 25, $categoryMap['Coffee machines'], 0, 'images/coldbrew-coffemaker.jpg'],
@@ -188,7 +182,7 @@ class Database
     }
 
     function searchProducts($q, $sortCol, $sortOrder)
-    { // $q = oo
+    {
         if (!in_array($sortCol, ["title", "price"])) {
             $sortCol = "title";
         }
@@ -283,7 +277,6 @@ class Database
 
     function getAllCategories()
     {
-        // SELECT DISTINCT categoryName FROM Products
         $data = $this->pdo->query('SELECT DISTINCT name FROM Categories')->fetchAll(PDO::FETCH_COLUMN);
         return $data;
     }
