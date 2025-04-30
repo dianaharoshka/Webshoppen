@@ -15,7 +15,7 @@ A small tea webshop developed as part of a web development course with a focus o
 
 - PHP  
 - MySQL  
-- HTML/CSS (no CSS frameworks)  
+- HTML/CSS 
 - JavaScript  
 - Composer for autoloading  
 - Environment configuration with `.env`
