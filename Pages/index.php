@@ -1,13 +1,12 @@
 <?php
-// ONCE = en gång även om det blir cirkelreferenser
-#include_once("Models/Products.php") - OK även om filen inte finns
+
 require_once(__DIR__ . "/../Models/Product.php");
 require_once(__DIR__ . "/../Models/Database.php");
 require_once(__DIR__ . "/../components/Footer.php");
 require_once(__DIR__ . "/../components/Nav.php");
 
 
-$dotenv = Dotenv\Dotenv::createImmutable("."); // . is  current folder for the PAGE
+$dotenv = Dotenv\Dotenv::createImmutable(".");
 $dotenv->load();
 
 $dbContext = new Database();
@@ -42,7 +41,6 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
     <header class="header">
         <video autoplay muted loop playsinline class="background-video">
             <source src="../video/header_video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
         <div class="header-content">
             <h1>Forest Brew</h1>
@@ -53,7 +51,9 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
         <section class="popular-products-carousel">
             <h2>Popular Products</h2>
             <div class="carousel-wrapper">
-                <button class="carousel-btn prev" aria-label="Scroll left">←</button>
+                <button class="carousel-btn prev" aria-label="Scroll left"><i
+                        class="fa-solid fa-chevron-left carousel-arrow"></i>
+                </button>
 
                 <div class="carousel-track">
                     <?php foreach ($dbContext->getPopularProducts(10) as $product): ?>
@@ -61,7 +61,7 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
                             <a href="/product?id=<?= $product['id'] ?>">
 
                                 <?php
-                                // Проверка на наличие изображения
+
                                 $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url']) : '/images/default.png';
                                 ?>
 
@@ -78,7 +78,9 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
                     <?php endforeach; ?>
                 </div>
 
-                <button class="carousel-btn next" aria-label="Scroll right">→</button>
+                <button class="carousel-btn next" aria-label="Scroll right"><i
+                        class="fa-solid fa-chevron-right carousel-arrow"></i>
+                </button>
             </div>
         </section>
 

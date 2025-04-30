@@ -1,12 +1,11 @@
 <?php
-// ONCE = en gång även om det blir cirkelreferenser
-#include_once("Models/Products.php") - OK även om filen inte finns
+
 require_once("Models/Product.php");
 require_once("components/Footer.php");
 require_once("Models/Database.php");
 require_once("components/Nav.php");
 
-$dotenv = Dotenv\Dotenv::createImmutable("."); // . is  current folder for the PAGE
+$dotenv = Dotenv\Dotenv::createImmutable(".");
 $dotenv->load();
 
 $dbContext = new Database();
@@ -20,16 +19,8 @@ $sortOrder = $_GET['sortOrder'] ?? "asc";
 
 
 
-// $products = $dbContext->getAllProducts($sortCol, $sortOrder);
+
 $products = $dbContext->getCategoryProducts($catName, $sortCol, $sortOrder);
-
-
-
-
-// $header = $catName;
-// if ($catName == "") {
-//     $header = "All Products";
-// }
 
 $categoryDetails = $dbContext->getCategoryDetails($catName);
 $header = $catName ? $categoryDetails['name'] : "All Products";
@@ -73,7 +64,6 @@ if ($sortCol && $sortOrder) {
 
     <?php Nav($dbContext); ?>
 
-    <!-- Header -->
     <header class="category-hero">
         <h1><?= htmlspecialchars($header); ?></h1>
         <?php if ($description): ?>
@@ -92,8 +82,6 @@ if ($sortCol && $sortOrder) {
         </ul>
     </div>
 
-
-    <!-- Section -->
     <section class="products">
         <div class="container">
             <div class="product-grid">

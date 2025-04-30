@@ -29,14 +29,24 @@
 
 .product-details h1 {
   margin-top: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .product-details p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 0.5rem 0;
 }
 
 .add-to-cart-btn:hover {
   background-color: #246b45;
+}
+
+@media (max-width: 768px) {
+  .product-image img {
+    max-width: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
 }

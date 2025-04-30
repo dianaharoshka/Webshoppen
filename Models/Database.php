@@ -212,8 +212,8 @@ class Database
         }
 
 
-        $query = $this->pdo->query("SELECT * FROM Products ORDER BY $sortCol $sortOrder"); // Products är TABELL 
-        return $query->fetchAll(PDO::FETCH_CLASS, 'Product'); // Product är PHP Klass
+        $query = $this->pdo->query("SELECT * FROM Products ORDER BY $sortCol $sortOrder");
+        return $query->fetchAll(PDO::FETCH_CLASS, 'Product');
     }
 
     public function getPopularProducts($limit = 10)
@@ -264,12 +264,12 @@ class Database
         }
 
         if ($catName == "") {
-            // Если имя категории не указано — вернуть все продукты с сортировкой
+
             $query = $this->pdo->query("SELECT * FROM Products ORDER BY $sortCol $sortOrder");
             return $query->fetchAll(PDO::FETCH_CLASS, 'Product');
         }
 
-        // Продукты из конкретной категории с сортировкой
+
         $query = $this->pdo->prepare("
         SELECT Products.* 
         FROM Products 

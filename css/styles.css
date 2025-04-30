@@ -158,6 +158,21 @@ nav .btn-cart:hover {
   padding: 1rem 0;
 }
 
+.carousel-arrow {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.carousel-btn {
+  border: none;
+}
+
+.carousel-arrow:hover {
+  color: #0e6b1a;
+}
+
 .product-card {
   flex: 0 0 250px;
   text-align: center;
