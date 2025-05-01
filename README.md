@@ -31,3 +31,8 @@ A small tea webshop developed as part of a web development course with a focus o
 
 Make sure your MySQL server is running and accessible.
 
+
+![Skärmbild 2025-05-01 104137](https://github.com/user-attachments/assets/3bec285e-30eb-4a39-b743-0ce6a599213a)
+![Skärmbild 2025-05-01 104210](https://github.com/user-attachments/assets/ce6292cd-bd85-4e49-9839-7e5f2fece69e)
+
+
