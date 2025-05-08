@@ -242,12 +242,22 @@ nav .btn-cart:hover {
   text-align: center;
 }
 
+footer {
+  background-color: #6c7d75;
+}
+
+.copyright {
+  color: #eef3f792;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
 .footer-blocks {
   background-color: #6c7d75;
   color: #eef3f7;
   display: flex;
   justify-content: space-around;
-  padding: 2rem;
+  padding: 1rem;
   flex-wrap: wrap;
 }
 
