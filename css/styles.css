@@ -130,11 +130,22 @@ nav .btn-cart:hover {
   color: #064e3b;
 }
 
+/* .product-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  justify-content: center;
+} */
 .product-grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 250px));
   justify-content: center;
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
 }
 
 .popular-products-carousel {
@@ -178,7 +189,8 @@ nav .btn-cart:hover {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 1rem;
-  min-height: 320px;
+  /* min-height: 320px; */
+  height: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -197,7 +209,8 @@ nav .btn-cart:hover {
   width: 100%;
   border-radius: 8px;
   object-fit: cover;
-  max-height: 140px;
+  height: 200px;
+  /* max-height: 140px; */
 }
 
 .product-card h3 {

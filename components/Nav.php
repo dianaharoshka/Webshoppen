@@ -29,9 +29,9 @@ function Nav(Database $dbContext)
             <form action="/search" method="GET">
                 <input type="text" name="q" placeholder="Search">
             </form>
-            <form method="POST" action="/cart">
-                <button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i></button>
-            </form>
+            <a href="/cart" class="btn-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
         </div>
     </nav>
 

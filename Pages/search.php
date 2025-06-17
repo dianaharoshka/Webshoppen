@@ -4,6 +4,8 @@ require_once("Models/Product.php");
 require_once("components/Footer.php");
 require_once("components/Nav.php");
 require_once("Models/Database.php");
+require_once("Utils/SearchEngine.php");
+require_once("components/SingleProduct.php");
 
 
 $dbContext = new Database();
@@ -12,7 +14,17 @@ $q = $_GET['q'] ?? "";
 $sortCol = $_GET['sortCol'] ?? "title";
 $sortOrder = $_GET['sortOrder'] ?? "asc";
 
-$products = $dbContext->searchProducts($q, $sortCol, $sortOrder);
+
+
+$searchEngine = new SearchEngine();
+
+// $products = $searchEngine->search($q, $sortCol, $sortOrder);
+$results = $searchEngine->search($q, $sortCol, $sortOrder);
+$products = $results["data"] ?? [];
+
+
+// $products = $dbContext->searchProducts($q, $sortCol, $sortOrder);
+
 
 
 $sortName = "Sort by";
@@ -66,10 +78,10 @@ if ($sortCol === "title" && $sortOrder === "asc") {
         <div class="container">
             <div class="product-grid">
                 <?php if (count($products) === 0): ?>
-                    <p>No products found.</p>
+                    <p class="no-products">No products found.</p>
                 <?php else: ?>
                     <?php foreach ($products as $prod): ?>
-                        <div class="product-card">
+                        <!-- <div class="product-card">
                             <a href="/product?id=<?= $prod->id ?>">
                                 <?php
                                 $imageSrc = !empty($prod->image_url) ? htmlspecialchars($prod->image_url) : '/images/default.png';
@@ -83,7 +95,8 @@ if ($sortCol === "title" && $sortOrder === "asc") {
                                     <a class="add-to-cart-btn" href="#">Add to cart</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+                        <?php SingleProduct($prod); ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>

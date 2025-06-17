@@ -4,6 +4,7 @@ require_once(__DIR__ . "/../Models/Product.php");
 require_once(__DIR__ . "/../Models/Database.php");
 require_once(__DIR__ . "/../components/Footer.php");
 require_once(__DIR__ . "/../components/Nav.php");
+require_once(__DIR__ . "/../components/SingleProduct.php");
 
 
 $dotenv = Dotenv\Dotenv::createImmutable(".");
@@ -57,7 +58,7 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
 
                 <div class="carousel-track">
                     <?php foreach ($dbContext->getPopularProducts(10) as $product): ?>
-                        <div class="product-card">
+                        <!-- <div class="product-card">
                             <a href="/product?id=<?= $product['id'] ?>">
 
                                 <?php
@@ -74,7 +75,8 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
                                     <a class="add-to-cart-btn" href="#">Add to cart</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+                        <?php SingleProduct($product); ?>
                     <?php endforeach; ?>
                 </div>
 
