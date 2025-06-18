@@ -9,6 +9,8 @@ $dbContext = new Database();
 
 $productId = $_GET['id'] ?? null;
 
+
+
 $catName = $_GET['catname'] ?? "";
 $product = $dbContext->getProductWithCategoryNameById($productId);
 
@@ -66,9 +68,10 @@ if (!$product) {
                 <p><strong>Price:</strong> <?= htmlspecialchars($product->price) ?> kr</p>
                 <p><strong>Description:</strong><br>
                     <?= nl2br(htmlspecialchars($product->description ?? 'No description available')) ?></p>
-
-                <button class="add-to-cart-btn" onclick="alert('Added to cart (not implemented yet)')">Add to
-                    Cart</button>
+                <a class="add-to-cart-btn"
+                    href="/addToCart?productId=<?= $product->id ?>&fromPage=<?= urlencode($_SERVER['REQUEST_URI']) ?>">
+                    Add to Cart
+                </a>
 
             </div>
         </section>

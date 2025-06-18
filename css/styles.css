@@ -57,10 +57,26 @@ nav .btn-cart {
   border: none;
   border-radius: 4px;
   margin-left: 1rem;
+
+  position: relative;
+  display: inline-block;
 }
 
 nav .btn-cart:hover {
   background-color: #0f766e;
+}
+
+.cart-count {
+  background-color: #3e5e4c;
+  color: #eef3f7;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .hamburger {
@@ -130,12 +146,6 @@ nav .btn-cart:hover {
   color: #064e3b;
 }
 
-/* .product-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  justify-content: center;
-} */
 .product-grid {
   display: grid;
   gap: 2rem;
@@ -210,7 +220,6 @@ nav .btn-cart:hover {
   border-radius: 8px;
   object-fit: cover;
   height: 200px;
-  /* max-height: 140px; */
 }
 
 .product-card h3 {
@@ -243,6 +252,8 @@ nav .btn-cart:hover {
   margin-top: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .add-to-cart-btn:hover {

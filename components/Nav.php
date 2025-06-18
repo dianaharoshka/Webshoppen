@@ -1,6 +1,14 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once("Models/Cart.php");
 function Nav(Database $dbContext)
 {
+    $session_id = session_id();
+    $dbContext = new Database();
+    $cart = new Cart($dbContext, $session_id);
+
     ?>
     <nav>
         <div class="nav-left">
@@ -31,6 +39,9 @@ function Nav(Database $dbContext)
             </form>
             <a href="/cart" class="btn-cart">
                 <i class="fa-solid fa-cart-shopping"></i>
+                <?php if ($cart->getItemsCount() > 0): ?>
+                    <span class="cart-count"><?= $cart->getItemsCount() ?></span>
+                <?php endif; ?>
             </a>
         </div>
     </nav>

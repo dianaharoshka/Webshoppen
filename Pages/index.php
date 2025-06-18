@@ -58,24 +58,7 @@ $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url
 
                 <div class="carousel-track">
                     <?php foreach ($dbContext->getPopularProducts(10) as $product): ?>
-                        <!-- <div class="product-card">
-                            <a href="/product?id=<?= $product['id'] ?>">
 
-                                <?php
-
-                                $imageSrc = !empty($product['image_url']) ? htmlspecialchars($product['image_url']) : '/images/default.png';
-                                ?>
-
-                                <img src="<?= $imageSrc ?>" alt="<?= htmlspecialchars($product['title'] ?? '') ?>">
-                                <h3><?= htmlspecialchars($product['title'] ?? '') ?></h3>
-                            </a>
-                            <p class="product-price"><?= $product['price'] ?> kr</p>
-                            <div class="product-footer">
-                                <div class="button-wrapper">
-                                    <a class="add-to-cart-btn" href="#">Add to cart</a>
-                                </div>
-                            </div>
-                        </div> -->
                         <?php SingleProduct($product); ?>
                     <?php endforeach; ?>
                 </div>

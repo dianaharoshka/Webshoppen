@@ -37,10 +37,6 @@
   margin: 0.5rem 0;
 }
 
-.add-to-cart-btn:hover {
-  background-color: #246b45;
-}
-
 @media (max-width: 768px) {
   .product-image img {
     max-width: 200px;
