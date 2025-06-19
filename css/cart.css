@@ -4,6 +4,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  background-color: #eef3f7;
 }
 
 main.cart-container {

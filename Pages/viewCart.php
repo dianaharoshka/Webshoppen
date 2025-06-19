@@ -67,15 +67,12 @@ $cart = new Cart($dbContext, $sessionId);
                             <td><?= $item->productPrice ?> kr</td>
                             <td><?= $item->rowPrice ?> kr</td>
                             <td>
-                                <!-- Кнопка "+" -->
-                                <a href="/addToCart?productId=<?= $item->productId ?>&fromPage=<?= urlencode((empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>"
-                                    class="btn">+</a>
-
-                                <!-- Кнопка "-" -->
                                 <a href="/removeFromCart?productId=<?= $item->productId ?>&fromPage=<?= urlencode((empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>"
                                     class="btn">−</a>
 
-                                <!-- Кнопка "Remove" -->
+                                <a href="/addToCart?productId=<?= $item->productId ?>&fromPage=<?= urlencode((empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>"
+                                    class="btn">+</a>
+
                                 <a href="/removeFromCart?removeCount=<?= $item->quantity ?>&productId=<?= $item->productId ?>&fromPage=<?= urlencode((empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>"
                                     class="btn danger">Remove</a>
                             </td>

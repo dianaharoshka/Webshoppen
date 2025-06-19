@@ -74,7 +74,6 @@ class SearchEngine
         }
     }
 
-    // Integration med tredjepartssystem: REST/JSON, Filer (XML mot Prisjakt) - språk/regelverk att förhålla sig till
     function search(string $query, string $sortCol, string $sortOrder)
     {
         $aa = "";
@@ -148,29 +147,9 @@ class SearchEngine
 
 
 
-    // $res = search("cov*",$accessKey,$secretKey,$url,$index_name);
-// //var_dump(count($res["hits"]["hits"]));
-// for($i =0 ; $i < count($res["hits"]["hits"]); $i++){
-//     $hit = $res["hits"]["hits"][$i];
-// //    var_dump($hit);
-//     echo $hit["_id"] . ","; 
-//     echo $hit["_source"]["webid"] . ","; 
-//     echo $hit["_source"]["title"] . ","; 
-//     echo $hit["_source"]["price"] . "</br>"; 
-// }
-
 
 
 }
 
-
-
-
-
-// $res = getDocumentIdOrUndefined(1,$accessKey,$secretKey,$url,$index_name);
-// if ($res == null){
-//     die("INGET");
-// }else{
-// }
 
 
