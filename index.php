@@ -36,6 +36,30 @@ $router->addRoute('/search', function () {
 $router->addRoute('/about', function () {
     require_once(__DIR__ . '/Pages/about.php');
 });
+$router->addRoute('/api/addToCart', function () {
+    require_once(__DIR__ . '/ApiCode/cart.php');
+});
+
+$router->addRoute('/cart', function () {
+    require_once(__DIR__ . '/Pages/viewCart.php');
+});
+
+$router->addRoute('/addToCart', function () {
+    require_once(__DIR__ . '/Pages/addToCart.php');
+});
+
+$router->addRoute('/removeFromCart', function () {
+    require_once(__DIR__ . '/Pages/removeFromCart.php');
+});
+
+$router->addRoute('/checkout', function () {
+    require_once(__DIR__ . '/Pages/checkout.php');
+});
+
+
+$router->addRoute('/checkoutsuccess', function () {
+    require_once(__DIR__ . '/Pages/checkoutsuccess.php');
+});
 
 $router->dispatch();
 ?>

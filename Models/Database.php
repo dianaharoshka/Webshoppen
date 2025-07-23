@@ -1,5 +1,6 @@
 <?php
 require_once("vendor/autoload.php");
+require_once('Models/CartItem.php');
 
 
 
@@ -41,6 +42,16 @@ class Database
             name VARCHAR(50),
             description VARCHAR(255)           
             )');
+
+        $this->pdo->query('CREATE TABLE IF NOT EXISTS CartItem (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                productId INT,
+                quantity INT,
+                addedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                sessionId VARCHAR(50),
+                userId INT NULL,
+                FOREIGN KEY (productId) REFERENCES Products(id) ON DELETE CASCADE
+                )');
     }
 
 
@@ -297,6 +308,85 @@ class Database
         $query->execute(['categoryName' => $catName]);
         return $query->fetch(PDO::FETCH_ASSOC);
     }
+
+
+
+    function getCartItemsBySession($sessionId)
+    {
+        $query = $this->pdo->prepare("
+        SELECT 
+            CartItem.Id as id, 
+            CartItem.productId, 
+            CartItem.quantity, 
+            Products.title as productName, 
+            Products.price as productPrice, 
+            Products.price * CartItem.quantity as rowPrice
+        FROM CartItem 
+        JOIN Products ON Products.id = CartItem.productId  
+        WHERE CartItem.sessionId = :sessionId
+    ");
+        $query->execute(['sessionId' => $sessionId]);
+
+        return $query->fetchAll(PDO::FETCH_CLASS, 'CartItem');
+    }
+
+    function updateCartItemBySession($sessionId, $productId, $quantity)
+    {
+        if ($quantity <= 0) {
+            $query = $this->pdo->prepare("
+            DELETE FROM CartItem 
+            WHERE sessionId = :sessionId AND productId = :productId
+        ");
+            $query->execute(['sessionId' => $sessionId, 'productId' => $productId]);
+            return;
+        }
+
+        $query = $this->pdo->prepare("
+        SELECT * FROM CartItem 
+        WHERE sessionId = :sessionId AND productId = :productId
+    ");
+        $query->execute(['sessionId' => $sessionId, 'productId' => $productId]);
+
+        if ($query->rowCount() === 0) {
+            $query = $this->pdo->prepare("
+            INSERT INTO CartItem (productId, quantity, sessionId) 
+            VALUES (:productId, :quantity, :sessionId)
+        ");
+        } else {
+            $query = $this->pdo->prepare("
+            UPDATE CartItem SET quantity = :quantity 
+            WHERE sessionId = :sessionId AND productId = :productId
+        ");
+        }
+
+        $query->execute([
+            'sessionId' => $sessionId,
+            'productId' => $productId,
+            'quantity' => $quantity
+        ]);
+    }
+
+    function deleteCartItemBySession($sessionId, $productId)
+    {
+        $query = $this->pdo->prepare("
+        DELETE FROM CartItem 
+        WHERE sessionId = :sessionId AND productId = :productId
+    ");
+        $query->execute(['sessionId' => $sessionId, 'productId' => $productId]);
+    }
+
+
+    function clearCartBySession($sessionId)
+    {
+        $query = $this->pdo->prepare("
+        DELETE FROM CartItem 
+        WHERE sessionId = :sessionId
+    ");
+        $query->execute(['sessionId' => $sessionId]);
+    }
+
+
+
 
 
 }

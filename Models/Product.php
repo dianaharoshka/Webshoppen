@@ -10,6 +10,7 @@ class Product
     public $is_popular;
     public $image_url;
     public $categoryName;
+    public $searchengineid;
 
 }
 
