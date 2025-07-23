@@ -62,10 +62,6 @@ nav .btn-cart {
   display: inline-block;
 }
 
-nav .btn-cart:hover {
-  background-color: #0f766e;
-}
-
 .cart-count {
   background-color: #3e5e4c;
   color: #eef3f7;
